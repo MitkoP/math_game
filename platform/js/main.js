@@ -59,20 +59,21 @@ $("#signin").submit(function(e){
             .then(function(result){
                 currentPlayer = new Player(result[0]);
                 alert("login");
+                $("#firstPage").hide();
             });
     }
     catch(err){
-        error=true;
-        
         console.log(err);
+       showNotification("Грешно потребителско име/ парола", "error");
     }
+   
     
-    setInterval(function(){
-        if(error === true){
-            showNotification("Грешно потребителско име/ парола", "error");
-            error = false;
-        }
-    },2000);
+    // setInterval(function(){
+    //     if(error === true){
+    //         showNotification("Грешно потребителско име/ парола", "error");
+    //         error = false;
+    //     }
+    // },2000);
     
     return false;
 });
